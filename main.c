@@ -85,14 +85,6 @@ void parseFile(FILE *file, int *year, char location[][MAX_LENGTH],
   }
 
   *numLines = i;
-  /*
-  printf("\nData for Canada:\n");
-  printf("Year, Location, Age Group, Sex, Value\n");
-  for (int i = *canadaStart; i <= *canadaEnd; i++) {
-    printf("%d, %s, %s, %s, %.2lf\n", year[i], location[i], ageGroup[i], sex[i],
-           value[i]);
-  }
-  */
 }
 
 int main() {
@@ -195,9 +187,6 @@ int main() {
   // j increments by 7 to go from one 2015 to another 2015
   // i will increment the year 2015 by an amount to go to the next year
   // (2015 --> 2016 --> 2017 etc...)
-
-  // CAN JUST MAKE IF YEAR = 2015 THEN DO BLAH BLAH
-  // NO NEED FOR THIS BUT IDK MAN
 
   printf("\n");
   for (int i = 1; i <= 7; i++) {
