@@ -85,6 +85,14 @@ void parseFile(FILE *file, int *year, char location[][MAX_LENGTH],
   }
 
   *numLines = i;
+  /*
+  printf("\nData for Canada:\n");
+  printf("Year, Location, Age Group, Sex, Value\n");
+  for (int i = *canadaStart; i <= *canadaEnd; i++) {
+    printf("%d, %s, %s, %s, %.2lf\n", year[i], location[i], ageGroup[i], sex[i],
+           value[i]);
+  }
+  */
 }
 
 int main() {
@@ -116,10 +124,12 @@ int main() {
   // < ---------------- a) ---------------->
   int count = 0;
   double sum = 0;
-  // Quebec average is an array of size 7 to accomodate the yearly averages
+  // Quebec average is an array of size 10 to accomodate the yearly averages and
+  // the age groups
   // index 0 will be the average excluding years
-  // 1-7 will be the years 2015-2021
-  double quebecAverage[7];
+  // 1-7 will be the yearly averages 2015-2021
+  // 8-10 will the be the age groups (35-49, 50-64, 65+)
+  double quebecAverage[10];
   sum = 0;
   for (int j = quebecStart; j <= quebecEnd; j++) {
     if (value[j] != 0) {
@@ -130,7 +140,7 @@ int main() {
   quebecAverage[0] = sum / count;
   printf("1a) Average for Quebec: %.2lf%\n", quebecAverage[0]);
 
-  double ontarioAverage[7];
+  double ontarioAverage[10];
   count = 0;
   sum = 0;
   for (int j = ontarioStart; j <= ontarioEnd; j++) {
@@ -144,7 +154,7 @@ int main() {
 
   count = 0;
   sum = 0;
-  double bcAverage[7];
+  double bcAverage[10];
   for (int j = bcStart; j <= bcEnd; j++) {
     if (value[j] != 0) {
       sum += value[j];
@@ -156,7 +166,7 @@ int main() {
 
   count = 0;
   sum = 0;
-  double albertaAverage[7];
+  double albertaAverage[10];
   for (int j = albertaStart; j <= albertaEnd; j++) {
     if (value[j] != 0) {
       sum += value[j];
@@ -170,7 +180,7 @@ int main() {
   printf("\n");
   count = 0;
   sum = 0;
-  double canadaAverage[7];
+  double canadaAverage[10];
   for (int j = canadaStart; j <= canadaEnd; j++) {
     if (value[j] != 0) {
       sum = sum + value[j];
@@ -185,6 +195,9 @@ int main() {
   // j increments by 7 to go from one 2015 to another 2015
   // i will increment the year 2015 by an amount to go to the next year
   // (2015 --> 2016 --> 2017 etc...)
+
+  // CAN JUST MAKE IF YEAR = 2015 THEN DO BLAH BLAH
+  // NO NEED FOR THIS BUT IDK MAN
 
   printf("\n");
   for (int i = 1; i <= 7; i++) {
@@ -240,8 +253,214 @@ int main() {
            quebecAverage[i], bcAverage[i], albertaAverage[i]);
   }
   // < ---------------- d) ---------------->
+  count = 0;
+  sum = 0;
+  for (int j = ontarioStart; j <= ontarioEnd; j++) {
+    if (strcmp(ageGroup[j], "35 to 49 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  ontarioAverage[8] = sum / count;
+  printf("1d) Average for Ontario (35-49 years): %.2lf%\n", ontarioAverage[8]);
+
+  count = 0;
+  sum = 0;
+  for (int j = ontarioStart; j <= ontarioEnd; j++) {
+    if (strcmp(ageGroup[j], "50 to 64 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  ontarioAverage[9] = sum / count;
+  printf("1d) Average for Ontario (50-64 years): %.2lf%\n", ontarioAverage[9]);
+
+  count = 0;
+  sum = 0;
+  for (int j = ontarioStart; j <= ontarioEnd; j++) {
+    if (strcmp(ageGroup[j], "65 years and over") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  ontarioAverage[10] = sum / count;
+  printf("1d) Average for Ontario (65+ years): %.2lf%\n", ontarioAverage[10]);
+
+  printf("\n");
+
+  count = 0;
+  sum = 0;
+  for (int j = canadaStart; j <= canadaEnd; j++) {
+    if (strcmp(ageGroup[j], "35 to 49 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  canadaAverage[8] = sum / count;
+  printf("1d) Average for Canada (35-49 years): %.2lf%\n", canadaAverage[8]);
+
+  count = 0;
+  sum = 0;
+  for (int j = canadaStart; j <= canadaEnd; j++) {
+    if (strcmp(ageGroup[j], "50 to 64 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  canadaAverage[9] = sum / count;
+  printf("1d) Average for Canada (50-64 years): %.2lf%\n", canadaAverage[9]);
+
+  count = 0;
+  sum = 0;
+  for (int j = canadaStart; j <= canadaEnd; j++) {
+    if (strcmp(ageGroup[j], "65 years and over") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  canadaAverage[10] = sum / count;
+  printf("1d) Average for Canada (65+ years): %.2lf%\n", canadaAverage[10]);
+
+  printf("\n");
+
+  count = 0;
+  sum = 0;
+  for (int j = quebecStart; j <= quebecEnd; j++) {
+    if (strcmp(ageGroup[j], "35 to 49 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  quebecAverage[8] = sum / count;
+  printf("1d) Average for Quebec (35-49 years): %.2lf%\n", quebecAverage[8]);
+
+  count = 0;
+  sum = 0;
+  for (int j = quebecStart; j <= quebecEnd; j++) {
+    if (strcmp(ageGroup[j], "50 to 64 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  quebecAverage[9] = sum / count;
+  printf("1d) Average for Quebec (50-64 years): %.2lf%\n", quebecAverage[9]);
+
+  count = 0;
+  sum = 0;
+  for (int j = quebecStart; j <= quebecEnd; j++) {
+    if (strcmp(ageGroup[j], "65 years and over") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  quebecAverage[10] = sum / count;
+  printf("1d) Average for Quebec (65+ years): %.2lf%\n", quebecAverage[10]);
+
+  printf("\n");
+
+  count = 0;
+  sum = 0;
+  for (int j = albertaStart; j <= albertaEnd; j++) {
+    if (strcmp(ageGroup[j], "35 to 49 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  albertaAverage[8] = sum / count;
+  printf("1d) Average for Alberta (35-49 years): %.2lf%\n", albertaAverage[8]);
+
+  count = 0;
+  sum = 0;
+  for (int j = albertaStart; j <= albertaEnd; j++) {
+    if (strcmp(ageGroup[j], "50 to 64 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  albertaAverage[9] = sum / count;
+  printf("1d) Average for Alberta (50-64 years): %.2lf%\n", albertaAverage[9]);
+
+  count = 0;
+  sum = 0;
+  for (int j = albertaStart; j <= albertaEnd; j++) {
+    if (strcmp(ageGroup[j], "65 years and over") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  albertaAverage[10] = sum / count;
+  printf("1d) Average for Alberta (65+ years): %.2lf%\n", albertaAverage[10]);
+
+  printf("\n");
+
+  count = 0;
+  sum = 0;
+  for (int j = bcStart; j <= bcEnd; j++) {
+    if (strcmp(ageGroup[j], "35 to 49 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  bcAverage[8] = sum / count;
+  printf("1d) Average for British Columbia (35-49 years): %.2lf%\n",
+         bcAverage[8]);
+
+  count = 0;
+  sum = 0;
+  for (int j = bcStart; j <= bcEnd; j++) {
+    if (strcmp(ageGroup[j], "50 to 64 years") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  bcAverage[9] = sum / count;
+  printf("1d) Average for British Columbia (50-64 years): %.2lf%\n",
+         bcAverage[9]);
+
+  count = 0;
+  sum = 0;
+  for (int j = bcStart; j <= bcEnd; j++) {
+    if (strcmp(ageGroup[j], "65 years and over") == 0) {
+      if (value[j] != 0) {
+        sum += value[j];
+        count++;
+      }
+    }
+  }
+  bcAverage[10] = sum / count;
+  printf("1d) Average for British Columbia (65+ years): %.2lf%\n",
+         bcAverage[10]);
 
   // < ---------------- Q2 ---------------->
+  printf("\n");
   // initialize min and max variables
   double min = quebecAverage[0];
   double max = quebecAverage[0];
