@@ -603,9 +603,8 @@ int main() {
 
   // < ---------------- PRINT TO FILE ---------------->
   // for use in GNUPlot
-
   // < ---------------- Total Averages ---------------->
-  output_file = fopen("provavg.txt", "w");
+  output_file = fopen("locavg.txt", "w");
   fprintf(output_file, "Canada (excluding territories) %.2lf\n",
           canadaAverage[0]);
   fprintf(output_file, "Ontario %.2lf\n", ontarioAverage[0]);
