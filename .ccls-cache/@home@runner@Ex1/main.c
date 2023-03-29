@@ -7,7 +7,7 @@
 // line char array must be defined to be of length greater then the longest line
 #define MAX_LENGTH 512
 
-void parseFile(FILE *file, int *year, char location[][MAX_LENGTH],
+void parseFile(FILE *input_file, int *year, char location[][MAX_LENGTH],
                char ageGroup[][MAX_LENGTH], char sex[][MAX_LENGTH],
                double *value, int *numLines, int *canadaStart, int *canadaEnd,
                int *quebecStart, int *quebecEnd, int *ontarioStart,
@@ -17,10 +17,10 @@ void parseFile(FILE *file, int *year, char location[][MAX_LENGTH],
   int i = 0;
 
   // skip header line
-  fgets(line, sizeof(line), file);
+  fgets(line, sizeof(line), input_file);
 
   // parse each line of the file
-  while (fgets(line, sizeof(line), file) != NULL && i < MAX_LINES) {
+  while (fgets(line, sizeof(line), input_file) != NULL && i < MAX_LINES) {
     char *token;
     int fieldcount = 0;
 
@@ -88,8 +88,8 @@ void parseFile(FILE *file, int *year, char location[][MAX_LENGTH],
 }
 
 int main() {
-  FILE *file = fopen("statscan_diabetes.csv", "r");
-  if (file == NULL) {
+  FILE *input_file = fopen("statscan_diabetes.csv", "r"), *output_file;
+  if (input_file == NULL) {
     printf("Could not open file.\n");
     exit(-1);
   }
@@ -106,11 +106,11 @@ int main() {
   int canadaEnd = -1, quebecEnd = -1, ontarioEnd = -1, albertaEnd = -1,
       bcEnd = -1;
 
-  parseFile(file, year, location, ageGroup, sex, value, &numLines, &canadaStart,
-            &canadaEnd, &quebecStart, &quebecEnd, &ontarioStart, &ontarioEnd,
-            &albertaStart, &albertaEnd, &bcStart, &bcEnd);
+  parseFile(input_file, year, location, ageGroup, sex, value, &numLines,
+            &canadaStart, &canadaEnd, &quebecStart, &quebecEnd, &ontarioStart,
+            &ontarioEnd, &albertaStart, &albertaEnd, &bcStart, &bcEnd);
 
-  fclose(file);
+  fclose(input_file);
 
   // < ---------------- Q1 ---------------->
   // < ---------------- a) ---------------->
@@ -601,5 +601,58 @@ int main() {
          "in %s, %d\n",
          lowestValue, lowestLocation, lowestYear);
 
+  // < ---------------- PRINT TO FILE ---------------->
+  // for use in GNUPlot
+  // Canada
+  output_file = fopen("canavg.txt", "w");
+  fprintf(output_file, "2015 %.2lf\n", canadaAverage[1]);
+  fprintf(output_file, "2016 %.2lf\n", canadaAverage[2]);
+  fprintf(output_file, "2017 %.2lf\n", canadaAverage[3]);
+  fprintf(output_file, "2018 %.2lf\n", canadaAverage[4]);
+  fprintf(output_file, "2019 %.2lf\n", canadaAverage[5]);
+  fprintf(output_file, "2020 %.2lf\n", canadaAverage[6]);
+  fprintf(output_file, "2021 %.2lf\n", canadaAverage[7]);
+
+  // British Columbia
+  output_file = fopen("bcavg.txt", "w");
+  fprintf(output_file, "2015 %.2lf\n", bcAverage[1]);
+  fprintf(output_file, "2016 %.2lf\n", bcAverage[2]);
+  fprintf(output_file, "2017 %.2lf\n", bcAverage[3]);
+  fprintf(output_file, "2018 %.2lf\n", bcAverage[4]);
+  fprintf(output_file, "2019 %.2lf\n", bcAverage[5]);
+  fprintf(output_file, "2020 %.2lf\n", bcAverage[6]);
+  fprintf(output_file, "2021 %.2lf\n", bcAverage[7]);
+
+  // Quebec
+  output_file = fopen("queavg.txt", "w");
+  fprintf(output_file, "2015 %.2lf\n", quebecAverage[1]);
+  fprintf(output_file, "2016 %.2lf\n", quebecAverage[2]);
+  fprintf(output_file, "2017 %.2lf\n", quebecAverage[3]);
+  fprintf(output_file, "2018 %.2lf\n", quebecAverage[4]);
+  fprintf(output_file, "2019 %.2lf\n", quebecAverage[5]);
+  fprintf(output_file, "2020 %.2lf\n", quebecAverage[6]);
+  fprintf(output_file, "2021 %.2lf\n", quebecAverage[7]);
+
+  // Ontario
+  output_file = fopen("ontavg.txt", "w");
+  fprintf(output_file, "2015 %.2lf\n", ontarioAverage[1]);
+  fprintf(output_file, "2016 %.2lf\n", ontarioAverage[2]);
+  fprintf(output_file, "2017 %.2lf\n", ontarioAverage[3]);
+  fprintf(output_file, "2018 %.2lf\n", ontarioAverage[4]);
+  fprintf(output_file, "2019 %.2lf\n", ontarioAverage[5]);
+  fprintf(output_file, "2020 %.2lf\n", ontarioAverage[6]);
+  fprintf(output_file, "2021 %.2lf\n", ontarioAverage[7]);
+
+  // Alberta
+  output_file = fopen("albavg.txt", "w");
+  fprintf(output_file, "2015 %.2lf\n", albertaAverage[1]);
+  fprintf(output_file, "2016 %.2lf\n", albertaAverage[2]);
+  fprintf(output_file, "2017 %.2lf\n", albertaAverage[3]);
+  fprintf(output_file, "2018 %.2lf\n", albertaAverage[4]);
+  fprintf(output_file, "2019 %.2lf\n", albertaAverage[5]);
+  fprintf(output_file, "2020 %.2lf\n", albertaAverage[6]);
+  fprintf(output_file, "2021 %.2lf\n", albertaAverage[7]);
+
+  fclose(output_file);
   return 0;
 }
