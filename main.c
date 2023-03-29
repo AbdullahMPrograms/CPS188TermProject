@@ -116,12 +116,12 @@ int main() {
   // < ---------------- a) ---------------->
   int count = 0;
   double sum = 0;
-  // Quebec average is an array of size 10 to accomodate the yearly averages and
+  // Quebec average is an array of size 11 to accomodate the yearly averages and
   // the age groups
   // index 0 will be the average excluding years
   // 1-7 will be the yearly averages 2015-2021
   // 8-10 will the be the age groups (35-49, 50-64, 65+)
-  double quebecAverage[10];
+  double quebecAverage[11];
   sum = 0;
   for (int j = quebecStart; j <= quebecEnd; j++) {
     if (value[j] != 0) {
@@ -132,7 +132,7 @@ int main() {
   quebecAverage[0] = sum / count;
   printf("1a) Average for Quebec: %.2lf%\n", quebecAverage[0]);
 
-  double ontarioAverage[10];
+  double ontarioAverage[11];
   count = 0;
   sum = 0;
   for (int j = ontarioStart; j <= ontarioEnd; j++) {
@@ -146,7 +146,7 @@ int main() {
 
   count = 0;
   sum = 0;
-  double bcAverage[10];
+  double bcAverage[11];
   for (int j = bcStart; j <= bcEnd; j++) {
     if (value[j] != 0) {
       sum += value[j];
@@ -158,7 +158,7 @@ int main() {
 
   count = 0;
   sum = 0;
-  double albertaAverage[10];
+  double albertaAverage[11];
   for (int j = albertaStart; j <= albertaEnd; j++) {
     if (value[j] != 0) {
       sum += value[j];
@@ -172,7 +172,7 @@ int main() {
   printf("\n");
   count = 0;
   sum = 0;
-  double canadaAverage[10];
+  double canadaAverage[11];
   for (int j = canadaStart; j <= canadaEnd; j++) {
     if (value[j] != 0) {
       sum = sum + value[j];
@@ -483,9 +483,9 @@ int main() {
     highestLocation = "Ontario";
   }
 
-  printf("2) The province with the lowest average is: %.2lf in %s\n", min,
+  printf("2) The province with the lowest average is: %.2lf%% in %s\n", min,
          lowestLocation);
-  printf("2) The province with the greatest average is: %.2lf in %s\n", max,
+  printf("2) The province with the greatest average is: %.2lf%% in %s\n", max,
          highestLocation);
 
   // < ---------------- Q3 ---------------->
@@ -580,10 +580,12 @@ int main() {
   }
 
   // Print the results
-  printf("4) The Province and year with the highest value is: %.2f in %s, %d\n",
-         highestValue, highestLocation, highestYear);
-  printf("4) The Province and year with the lowest value is: %.2f in %s, %d\n",
-         lowestValue, lowestLocation, lowestYear);
+  printf(
+      "4) The Province and year with the highest value is: %.2f%% in %s, %d\n",
+      highestValue, highestLocation, highestYear);
+  printf(
+      "4) The Province and year with the lowest value is: %.2f%% in %s, %d\n",
+      lowestValue, lowestLocation, lowestYear);
 
   return 0;
 }
