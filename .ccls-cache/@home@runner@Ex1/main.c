@@ -142,7 +142,7 @@ int main() {
     }
   }
   ontarioAverage[0] = sum / count;
-  printf("1a) Average for Ontario: %.2lf%\n", ontarioAverage[0]);
+  printf("1a) Diabetes average for Ontario: %.2lf%\n", ontarioAverage[0]);
 
   count = 0;
   sum = 0;
@@ -154,7 +154,7 @@ int main() {
     }
   }
   bcAverage[0] = sum / count;
-  printf("1a) Average for British Columbia: %.2lf%\n", bcAverage[0]);
+  printf("1a) Diabetes average for British Columbia: %.2lf%\n", bcAverage[0]);
 
   count = 0;
   sum = 0;
@@ -166,7 +166,7 @@ int main() {
     }
   }
   albertaAverage[0] = sum / count;
-  printf("1a) Average for Alberta: %.2lf%\n", albertaAverage[0]);
+  printf("1a) Diabetes average for Alberta: %.2lf%\n", albertaAverage[0]);
 
   // < ---------------- b) ---------------->
   printf("\n");
@@ -180,7 +180,7 @@ int main() {
     }
   }
   canadaAverage[0] = sum / count;
-  printf("1b) Average for Canada: %.2lf%\n", canadaAverage[0]);
+  printf("1b) Diabetes average for Canada: %.2lf%\n", canadaAverage[0]);
 
   // < ---------------- c) ---------------->
   // 7 years in file (2015-2021)
@@ -236,7 +236,8 @@ int main() {
       }
     }
 
-    printf("1c) Average for year %d:\nCanada: %.2lf%\nOntario: %.2lf%\nQuebec: "
+    printf("1c) Diabetes average for the year %d:\nCanada: %.2lf%\nOntario: "
+           "%.2lf%\nQuebec: "
            "%.2lf%\nBC: %.2lf%\nAlberta: %.2lf%\n\n",
            (2015 + i - 1), canadaAverage[i], ontarioAverage[i],
            quebecAverage[i], bcAverage[i], albertaAverage[i]);
@@ -253,7 +254,8 @@ int main() {
     }
   }
   ontarioAverage[8] = sum / count;
-  printf("1d) Average for Ontario (35-49 years): %.2lf%\n", ontarioAverage[8]);
+  printf("1d) Diabetes average for Ontario (35-49 years): %.2lf%\n",
+         ontarioAverage[8]);
 
   count = 0;
   sum = 0;
@@ -266,7 +268,8 @@ int main() {
     }
   }
   ontarioAverage[9] = sum / count;
-  printf("1d) Average for Ontario (50-64 years): %.2lf%\n", ontarioAverage[9]);
+  printf("1d) Diabetes average for Ontario (50-64 years): %.2lf%\n",
+         ontarioAverage[9]);
 
   count = 0;
   sum = 0;
@@ -279,7 +282,8 @@ int main() {
     }
   }
   ontarioAverage[10] = sum / count;
-  printf("1d) Average for Ontario (65+ years): %.2lf%\n", ontarioAverage[10]);
+  printf("1d) Diabetes average for Ontario (65+ years): %.2lf%\n",
+         ontarioAverage[10]);
 
   printf("\n");
 
@@ -294,7 +298,8 @@ int main() {
     }
   }
   canadaAverage[8] = sum / count;
-  printf("1d) Average for Canada (35-49 years): %.2lf%\n", canadaAverage[8]);
+  printf("1d) Diabetes average for Canada (35-49 years): %.2lf%\n",
+         canadaAverage[8]);
 
   count = 0;
   sum = 0;
@@ -307,7 +312,8 @@ int main() {
     }
   }
   canadaAverage[9] = sum / count;
-  printf("1d) Average for Canada (50-64 years): %.2lf%\n", canadaAverage[9]);
+  printf("1d) Diabetes average for Canada (50-64 years): %.2lf%\n",
+         canadaAverage[9]);
 
   count = 0;
   sum = 0;
@@ -320,7 +326,8 @@ int main() {
     }
   }
   canadaAverage[10] = sum / count;
-  printf("1d) Average for Canada (65+ years): %.2lf%\n", canadaAverage[10]);
+  printf("1d) Diabetes average for Canada (65+ years): %.2lf%\n",
+         canadaAverage[10]);
 
   printf("\n");
 
@@ -348,7 +355,8 @@ int main() {
     }
   }
   quebecAverage[9] = sum / count;
-  printf("1d) Average for Quebec (50-64 years): %.2lf%\n", quebecAverage[9]);
+  printf("1d) Diabetes average for Quebec (50-64 years): %.2lf%\n",
+         quebecAverage[9]);
 
   count = 0;
   sum = 0;
@@ -361,7 +369,8 @@ int main() {
     }
   }
   quebecAverage[10] = sum / count;
-  printf("1d) Average for Quebec (65+ years): %.2lf%\n", quebecAverage[10]);
+  printf("1d) Diabetes average for Quebec (65+ years): %.2lf%\n",
+         quebecAverage[10]);
 
   printf("\n");
 
@@ -376,7 +385,8 @@ int main() {
     }
   }
   albertaAverage[8] = sum / count;
-  printf("1d) Average for Alberta (35-49 years): %.2lf%\n", albertaAverage[8]);
+  printf("1d) Diabetes average for Alberta (35-49 years): %.2lf%\n",
+         albertaAverage[8]);
 
   count = 0;
   sum = 0;
@@ -389,7 +399,8 @@ int main() {
     }
   }
   albertaAverage[9] = sum / count;
-  printf("1d) Average for Alberta (50-64 years): %.2lf%\n", albertaAverage[9]);
+  printf("1d) Diabetes average for Alberta (50-64 years): %.2lf%\n",
+         albertaAverage[9]);
 
   count = 0;
   sum = 0;
@@ -402,7 +413,8 @@ int main() {
     }
   }
   albertaAverage[10] = sum / count;
-  printf("1d) Average for Alberta (65+ years): %.2lf%\n", albertaAverage[10]);
+  printf("1d) Diabetes average for Alberta (65+ years): %.2lf%\n",
+         albertaAverage[10]);
 
   printf("\n");
 
@@ -417,7 +429,7 @@ int main() {
     }
   }
   bcAverage[8] = sum / count;
-  printf("1d) Average for British Columbia (35-49 years): %.2lf%\n",
+  printf("1d) Diabetes average for British Columbia (35-49 years): %.2lf%\n",
          bcAverage[8]);
 
   count = 0;
@@ -431,7 +443,7 @@ int main() {
     }
   }
   bcAverage[9] = sum / count;
-  printf("1d) Average for British Columbia (50-64 years): %.2lf%\n",
+  printf("1d) Diabetes average for British Columbia (50-64 years): %.2lf%\n",
          bcAverage[9]);
 
   count = 0;
@@ -445,7 +457,7 @@ int main() {
     }
   }
   bcAverage[10] = sum / count;
-  printf("1d) Average for British Columbia (65+ years): %.2lf%\n",
+  printf("1d) Diabetes average for British Columbia (65+ years): %.2lf%\n",
          bcAverage[10]);
 
   // < ---------------- Q2 ---------------->
@@ -483,14 +495,16 @@ int main() {
     highestLocation = "Ontario";
   }
 
-  printf("2) The province with the lowest average is: %.2lf%% in %s\n", min,
-         lowestLocation);
-  printf("2) The province with the greatest average is: %.2lf%% in %s\n", max,
-         highestLocation);
+  printf(
+      "2) The province with the lowest diabetes average is: %s with %.2lf%%\n",
+      lowestLocation, min);
+  printf("2) The province with the greatest diabetes average is: %s with "
+         "%.2lf%%\n",
+         highestLocation, max);
 
   // < ---------------- Q3 ---------------->
   printf("\n");
-  printf("3) Provinces with averages above the national average:\n");
+  printf("3) Provinces with diabetes averages above the national average:\n");
   if (bcAverage[0] > canadaAverage[0]) {
     printf("British Columbia\n");
   }
@@ -504,7 +518,7 @@ int main() {
     printf("Quebec\n");
   }
   printf("\n");
-  printf("3) Provinces with averages below the national average:\n");
+  printf("3) Provinces with diabetes averages below the national average:\n");
   if (bcAverage[0] < canadaAverage[0]) {
     printf("British Columbia\n");
   }
@@ -580,12 +594,12 @@ int main() {
   }
 
   // Print the results
-  printf(
-      "4) The Province and year with the highest value is: %.2f%% in %s, %d\n",
-      highestValue, highestLocation, highestYear);
-  printf(
-      "4) The Province and year with the lowest value is: %.2f%% in %s, %d\n",
-      lowestValue, lowestLocation, lowestYear);
+  printf("4) The Province and year with the highest diabetes average is: "
+         "%.2f%% in %s, %d\n",
+         highestValue, highestLocation, highestYear);
+  printf("4) The Province and year with the lowest diabetes average is: %.2f%% "
+         "in %s, %d\n",
+         lowestValue, lowestLocation, lowestYear);
 
   return 0;
 }
