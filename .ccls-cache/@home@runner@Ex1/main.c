@@ -603,8 +603,19 @@ int main() {
 
   // < ---------------- PRINT TO FILE ---------------->
   // for use in GNUPlot
+
+  // < ---------------- Total Averages ---------------->
+  output_file = fopen("provavg.txt", "w");
+  fprintf(output_file, "Canada (excluding territories) %.2lf\n",
+          canadaAverage[0]);
+  fprintf(output_file, "Ontario %.2lf\n", ontarioAverage[0]);
+  fprintf(output_file, "Quebec %.2lf\n", quebecAverage[0]);
+  fprintf(output_file, "British Columbia %.2lf\n", bcAverage[0]);
+  fprintf(output_file, "Alberta %.2lf\n", albertaAverage[0]);
+
+  // < ---------------- Yearly Averages ---------------->
   // Canada
-  output_file = fopen("canavg.txt", "w");
+  output_file = fopen("canyearlyavg.txt", "w");
   fprintf(output_file, "2015 %.2lf\n", canadaAverage[1]);
   fprintf(output_file, "2016 %.2lf\n", canadaAverage[2]);
   fprintf(output_file, "2017 %.2lf\n", canadaAverage[3]);
@@ -614,7 +625,7 @@ int main() {
   fprintf(output_file, "2021 %.2lf\n", canadaAverage[7]);
 
   // British Columbia
-  output_file = fopen("bcavg.txt", "w");
+  output_file = fopen("bcyearlyavg.txt", "w");
   fprintf(output_file, "2015 %.2lf\n", bcAverage[1]);
   fprintf(output_file, "2016 %.2lf\n", bcAverage[2]);
   fprintf(output_file, "2017 %.2lf\n", bcAverage[3]);
@@ -624,7 +635,7 @@ int main() {
   fprintf(output_file, "2021 %.2lf\n", bcAverage[7]);
 
   // Quebec
-  output_file = fopen("queavg.txt", "w");
+  output_file = fopen("queyearlyavg.txt", "w");
   fprintf(output_file, "2015 %.2lf\n", quebecAverage[1]);
   fprintf(output_file, "2016 %.2lf\n", quebecAverage[2]);
   fprintf(output_file, "2017 %.2lf\n", quebecAverage[3]);
@@ -634,7 +645,7 @@ int main() {
   fprintf(output_file, "2021 %.2lf\n", quebecAverage[7]);
 
   // Ontario
-  output_file = fopen("ontavg.txt", "w");
+  output_file = fopen("ontyearlyavg.txt", "w");
   fprintf(output_file, "2015 %.2lf\n", ontarioAverage[1]);
   fprintf(output_file, "2016 %.2lf\n", ontarioAverage[2]);
   fprintf(output_file, "2017 %.2lf\n", ontarioAverage[3]);
@@ -644,7 +655,7 @@ int main() {
   fprintf(output_file, "2021 %.2lf\n", ontarioAverage[7]);
 
   // Alberta
-  output_file = fopen("albavg.txt", "w");
+  output_file = fopen("albyearlyavg.txt", "w");
   fprintf(output_file, "2015 %.2lf\n", albertaAverage[1]);
   fprintf(output_file, "2016 %.2lf\n", albertaAverage[2]);
   fprintf(output_file, "2017 %.2lf\n", albertaAverage[3]);

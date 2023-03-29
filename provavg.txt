@@ -1,0 +1,5 @@
+Canada (excluding territories) 10.87
+Ontario 11.70
+Quebec 10.45
+British Columbia 9.67
+Alberta 10.86
