@@ -130,7 +130,7 @@ int main() {
     }
   }
   quebecAverage[0] = sum / count;
-  printf("1a) Average for Quebec: %.2lf%\n", quebecAverage[0]);
+  printf("1a) Diabetes average for Quebec: %.2lf%\n", quebecAverage[0]);
 
   double ontarioAverage[11];
   count = 0;
