@@ -633,7 +633,6 @@ int main() {
   // for use in GNUPlot
 
   char choice;
-
   while (1) {
     printf(
         "\nWould you like to export yearly and age related averages? (Y/N)\n");
