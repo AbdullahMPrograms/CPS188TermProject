@@ -632,8 +632,8 @@ int main() {
   // < ---------------- PRINT TO FILE ---------------->
   // for use in GNUPlot
 
-  char choice;
   while (1) {
+    char choice;
     printf(
         "\nWould you like to export yearly and age related averages? (Y/N)\n");
     printf(" > ");
@@ -715,7 +715,6 @@ int main() {
       printf("Invalid Input\n");
     }
   }
-
   printf("\nClosing Program...\n");
   fclose(output_file);
   return 0;
