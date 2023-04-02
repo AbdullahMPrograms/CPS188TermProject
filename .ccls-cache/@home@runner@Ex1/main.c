@@ -644,10 +644,18 @@ int main() {
       displayLoadingBar();
       int status = mkdir("exporteddata", 0700);
       if (status == -1) {
-        printf("Error creating directory!");
-        return 1;
+        printf("Directory already exists. Overwriting...\n");
+        system("rm -rf exported\\ data");
       }
-      printf("Directory created successfully!");
+
+      // < ---------------- Location Averages ---------------->
+      output_file = fopen("./exporteddata/locavg.txt", "w");
+      fprintf(output_file, "Canada (excluding territories) %.2lf\n",
+              canadaAverage[0]);
+      fprintf(output_file, "Ontario %.2lf\n", ontarioAverage[0]);
+      fprintf(output_file, "Quebec %.2lf\n", quebecAverage[0]);
+      fprintf(output_file, "BC %.2lf\n", bcAverage[0]);
+      fprintf(output_file, "Alberta %.2lf\n", albertaAverage[0]);
       // < ---------------- Yearly Averages ---------------->
       // Canada
       output_file = fopen("./exporteddata/canyearlyavg.txt", "w");
