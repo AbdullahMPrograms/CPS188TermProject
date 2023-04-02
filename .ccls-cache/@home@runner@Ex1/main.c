@@ -2,6 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <sys/stat.h>
+#include <unistd.h>
 
 // max lines greater than that of the file
 #define MAX_LINES 512
@@ -14,8 +15,8 @@ void displayLoadingBar() {
   const int delay = 100000; // Set the delay between updates (in microseconds)
 
   // Initialize two arrays longer than the number of characters to output
-  char s1[n + 1] = "====================";
-  char s2[n + 1] = "                    ";
+  char s1[21] = "====================";
+  char s2[21] = "                    ";
 
   for (int i = 0; i <= n; i++) {
     // Only output the first i characters of s1
