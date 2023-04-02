@@ -643,7 +643,7 @@ int main() {
       displayLoadingBar();
       // < ---------------- Yearly Averages ---------------->
       // Canada
-      output_file = fopen("./data/canyearlyavg.txt", "w");
+      output_file = fopen("./exporteddata/canyearlyavg.txt", "w");
       fprintf(output_file, "2015 %.2lf\n", canadaAverage[1]);
       fprintf(output_file, "2016 %.2lf\n", canadaAverage[2]);
       fprintf(output_file, "2017 %.2lf\n", canadaAverage[3]);
@@ -653,7 +653,7 @@ int main() {
       fprintf(output_file, "2021 %.2lf\n", canadaAverage[7]);
 
       // British Columbia
-      output_file = fopen("./data/bcyearlyavg.txt", "w");
+      output_file = fopen("./exporteddata/bcyearlyavg.txt", "w");
       fprintf(output_file, "2015 %.2lf\n", bcAverage[1]);
       fprintf(output_file, "2016 %.2lf\n", bcAverage[2]);
       fprintf(output_file, "2017 %.2lf\n", bcAverage[3]);
@@ -663,7 +663,7 @@ int main() {
       fprintf(output_file, "2021 %.2lf\n", bcAverage[7]);
 
       // Quebec
-      output_file = fopen("./data/queyearlyavg.txt", "w");
+      output_file = fopen("./exporteddata/queyearlyavg.txt", "w");
       fprintf(output_file, "2015 %.2lf\n", quebecAverage[1]);
       fprintf(output_file, "2016 %.2lf\n", quebecAverage[2]);
       fprintf(output_file, "2017 %.2lf\n", quebecAverage[3]);
@@ -673,7 +673,7 @@ int main() {
       fprintf(output_file, "2021 %.2lf\n", quebecAverage[7]);
 
       // Ontario
-      output_file = fopen("./data/ontyearlyavg.txt", "w");
+      output_file = fopen("./exporteddata/ontyearlyavg.txt", "w");
       fprintf(output_file, "2015 %.2lf\n", ontarioAverage[1]);
       fprintf(output_file, "2016 %.2lf\n", ontarioAverage[2]);
       fprintf(output_file, "2017 %.2lf\n", ontarioAverage[3]);
@@ -683,7 +683,7 @@ int main() {
       fprintf(output_file, "2021 %.2lf\n", ontarioAverage[7]);
 
       // Alberta
-      output_file = fopen("./data/albyearlyavg.txt", "w");
+      output_file = fopen("./exporteddata/albyearlyavg.txt", "w");
       fprintf(output_file, "2015 %.2lf\n", albertaAverage[1]);
       fprintf(output_file, "2016 %.2lf\n", albertaAverage[2]);
       fprintf(output_file, "2017 %.2lf\n", albertaAverage[3]);
@@ -694,16 +694,16 @@ int main() {
 
       // < ---------------- Age Averages ---------------->
       // Ages (35-49)
-      output_file = fopen("./data/lowage.txt", "w");
+      output_file = fopen("./exporteddata/lowage.txt", "w");
       fprintf(output_file, "Canada(ExcludingTerritories) %.2lf\n",
               canadaAverage[8]);
 
       // Ages (50-64)
-      output_file = fopen("./data/midage.txt", "w");
+      output_file = fopen("./exporteddata/midage.txt", "w");
       fprintf(output_file, "Canada(ExcludingTerritories) %.2lf\n",
               canadaAverage[9]);
       // Ages (65+)
-      output_file = fopen("./data/oldage.txt", "w");
+      output_file = fopen("./exporteddata/oldage.txt", "w");
       fprintf(output_file, "Canada(ExcludingTerritories) %.2lf\n",
               canadaAverage[10]);
 
