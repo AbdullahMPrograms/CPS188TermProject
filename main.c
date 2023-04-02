@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
+#include <sys/stat.h>
 
 // max lines greater than that of the file
 #define MAX_LINES 512
@@ -641,6 +642,12 @@ int main() {
     if (choice == 'Y' || choice == 'y') {
       printf("\nExporting Data to File...\n");
       displayLoadingBar();
+      int status = mkdir("exporteddata", 0700);
+      if (status == -1) {
+        printf("Error creating directory!");
+        return 1;
+      }
+      printf("Directory created successfully!");
       // < ---------------- Yearly Averages ---------------->
       // Canada
       output_file = fopen("./exporteddata/canyearlyavg.txt", "w");
