@@ -2,7 +2,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-// max lines greather then that of the file
+// max lines greater than that of the file
 #define MAX_LINES 512
 // line char array must be defined to be of length greater then the longest line
 #define MAX_LENGTH 512
@@ -110,7 +110,7 @@ void parseFile(FILE *input_file, int *year, char location[][MAX_LENGTH],
 int main() {
   printf("Reading Data File\n");
   displayLoadingBar();
-  FILE *input_file = fopen("./data/statscan_diabetes.csv", "r"), *output_file;
+  FILE *input_file = fopen("statscan_diabetes.csv", "r"), *output_file;
   if (input_file == NULL) {
     printf("Could not open file.\n");
     exit(-1);
