@@ -636,8 +636,8 @@ int main() {
 
   while (1) {
     char choice;
-    printf(
-        "\nWould you like to export yearly and age related averages? (Y/N)\n");
+    printf("\nWould you like to export location, yearly, and age related "
+           "averages? (Y/N)\n");
     printf(" > ");
     scanf(" %c", &choice);
     if (choice == 'Y' || choice == 'y') {
